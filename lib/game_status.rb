@@ -8,7 +8,7 @@ WIN_COMBINATIONS=[[0,1,2],[3,4,5],[6,7,8],[0,4,8],[2,4,6],[0,3,6],[1,4,7],[2,5,8
 
 def won?(board)
   WIN_COMBINATIONS.each do |win_combination|
-    if board[win_combination[0]]==board[win_combination[1]]==board[win_combination[2]]
+    if (board[win_combination[0]]==board[win_combination[1]]==board[win_combination[2]]=="x")||(board[win_combination[0]]==board[win_combination[1]]==board[win_combination[2]]=="O")
       return win_combination
   end
   return false
@@ -24,4 +24,12 @@ end
 
 def over?(board)
   return (draw?(board)||won?(board))
+end
+
+def winner(board)
+  arr=won?(board)
+  if arr!=false
+    return arr[0]
+  end
+  return nil
 end
