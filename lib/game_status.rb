@@ -21,3 +21,7 @@ end
 def draw?(board)
   return (full?(board)&&!won?(board))
 end
+
+def over?(board)
+  return (draw?(board)||won?(board))
+end
